@@ -117,6 +117,7 @@ This access policy will allow the following:
 - The Role assumed by users of our Cognito User Pool 
 
 **TIP**: You'll need to update the policy with the ARN's specific to your account (update the account numbers)
+**Tip** You can get your Accout number by running this CLI Command: `aws sts get-caller-identity`
 
 Click Next, and then Confirm to launch your Elasticsearch cluster.
 
@@ -199,12 +200,15 @@ This application uses [AWS SAM](https://github.com/awslabs/serverless-applicatio
 Open up the `template.yaml` file, which is the SAM template. This file tells AWS SAM to setup an API gateway and to deploy the current directory as a lambda.
 
 Update the `domain` environment variable to match your Elasticsearch clusters' domain URL.
+Then, update the account number in the ROLE ARN to match your account number.
+
+Note: You can get your Accout number by running this CLI Command: `aws sts get-caller-identity`
 
 Head over to the AWS console, open up the S3 console page, and create a new bucket - give it a unique name like: `johns-aws-artifacts`
 
 Now that you've created an S3 bucket, we're going to use that bucket to host our code builds. 
 
-Open up the `deploy.sh` file, and update the S3_Bucket variable to match your new S3 bucket name.
+Open up the `deploy.sh` file, and update the S3_Bucket variable to match your new S3 bucket name
 
 After doing that, you can execute that file to package + deploy the Lambda + API Gateway: `./deploy.sh`
 
