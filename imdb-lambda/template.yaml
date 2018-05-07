@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  IMDBSearch:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: nodejs6.10
+      Handler: index.handler
+      FunctionName: imdb-search
+      Role: arn:aws:iam::604674757980:role/lambda_imdb_role
+      Environment:
+        Variables: 
+          domain: https://search-imdb-movies-blahblahblah.ap-southeast-2.es.amazonaws.com
+      Events:
+          Add:
+            Type: Api
+            Properties:
+              Path: /
+              Method: GET

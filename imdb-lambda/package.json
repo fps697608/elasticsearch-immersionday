@@ -1,0 +1,17 @@
+{
+  "name": "imdb-lambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.232.1",
+    "bluebird": "^3.5.1",
+    "elasticsearch": "^14.2.2",
+    "http-aws-es": "^4.0.0"
+  }
+}
